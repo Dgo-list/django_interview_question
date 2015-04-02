@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="1509377010">
+    <data-source source="LOCAL" name="Django default" uuid="934c2b76-9efa-4029-a5c8-350e4b304729">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/db.forms_with_friends.sqlite3</jdbc-url>
+      <libraries />
+    </data-source>
+  </component>
+</project>

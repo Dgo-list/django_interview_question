@@ -1,0 +1,52 @@
+{%  extends 'master.html' %}
+
+    {% block content %}
+        <div class="col-md-10 col-md-offset-1">
+            <div class="row">
+                 <h1>Create a Question</h1>
+
+                <form action="" method="post" class="" id="question">
+                    {% csrf_token %}
+                    {% for field in form %}
+                        <div class="form-group">
+                            <label>{{ field.label }}</label>
+                            {{ field }}
+                        </div>
+                    {% endfor %}
+
+                    <div class="row">
+                        <div class="well" hidden="true">
+                            <h3>Answers</h3>
+
+                            <p id="createAnswer"><a href="" id="createAnswer">Add Answer</a></p>
+                        </div>
+                    </div>
+
+
+                    <input type="submit" class="form-control btn-primary"/>
+                </form>
+            </div>
+        </div>
+
+    {% endblock %}
+
+    {% block js %}
+        <script>
+            $("#id_type").on('change', function() {
+                if($(this).val() == 1){
+                    $("div.well").show();
+                } else {
+                    $("div.well").hide();
+                }
+            });
+
+            var count=0;
+            $("a#createAnswer").on('click', function(event) {
+                count++;
+                event.preventDefault();
+                var answers_field = "<label>Answer " + count + "</label><input type='text' name='answers[]' class='form-control'/>";
+                $("p#createAnswer").after(answers_field);
+            });
+        </script>
+
+    {% endblock %}

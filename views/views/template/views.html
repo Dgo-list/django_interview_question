@@ -1,0 +1,55 @@
+{%  extends 'master.html' %}
+
+    {% block content %}
+         <div class="col-md-10 col-md-offset-1">
+            <div class="row">
+                <div class="col-sm-8">
+                    <h1>{{ template.name }}</h1>
+                    {% if template.user == request.user %}
+                        <p>Email to a Friend:
+                            <a href="mailtto:?subject=checkout out this survey&body=Hey, I just created this survey at FormsWithFriends
+                             and i want you to checkout it out at {{ request.build_absolute_uri }}">Send Now</a>
+                        </p>
+                    {% endif %}
+                    <p>{{ template.description }}</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <h3>Questions</h3>
+
+
+                    {% if template.question_set.length == Null %}
+                        {% if template.user == request.user %}
+                            <div class="well">
+                                <p><a href="/questions/create/{{template.id }}">Create a New Question</a></p>
+                            </div>
+                        {% endif %}
+
+                        <div class="row">
+                        {% for question in questions %}
+                                <div class="col-sm-5">
+                                    <p><strong>Question:</strong> {{ question }}</p>
+                                    {% if question.type == '0' %}
+                                        <label>Answer</label><input type="text" class="form-control"/>
+                                    {% else %}
+                                        <p><strong>Answer</strong></p>
+                                        {% for answer in question.answers %}
+                                            <div class="radio-inline">
+                                                <label><input type="radio" name="answer">{{ answer }}</label>
+                                            </div>
+                                        {% endfor %}
+                                    {% endif %}
+                                </div>
+                        {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+
+    {% block js %}
+
+    {% endblock %}

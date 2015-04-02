@@ -1,0 +1,23 @@
+{%  extends 'master.html' %}
+
+    {% block content %}
+        <div class="col-md-6 col-md-offset-3">
+             <h1>Create a Template</h1>
+
+            <form action="" method="post" class="">
+                {% csrf_token %}
+                {% for field in form %}
+                    <div class="form-group">
+                        <label>{{ field.label }}</label>
+                        {{ field }}
+                    </div>
+                {% endfor %}
+                <input type="submit" class="form-control btn-primary"/>
+            </form>
+        </div>
+
+    {% endblock %}
+
+    {% block js %}
+
+    {% endblock %}
