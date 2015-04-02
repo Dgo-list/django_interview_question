@@ -36,8 +36,8 @@
                                     {% else %}
                                         <p><strong>Answer</strong></p>
                                         {% for answer in question.answers %}
-                                            <div class="radio-inline">
-                                                <label><input type="radio" name="answer">{{ answer }}</label>
+                                            <div class="checkbox-inline">
+                                                <label><input type="checkbox" value="{{ answer.id }}">{{ answer }}</label>
                                             </div>
                                         {% endfor %}
                                     {% endif %}

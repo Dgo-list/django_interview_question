@@ -46,7 +46,7 @@ def aboutus(request):
                               context_instance=RequestContext(request))
 
 
-@login_required
+@login_required(login_url='login')
 def logout(request):
     auth_logout(request)
     warning(request, 'You are now Logged Out!')
